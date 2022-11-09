@@ -66,6 +66,12 @@ rank = page.find('span', {'class' : 'numbers ranked'}).find('strong').text.repla
 #popularity
 popularity = page.find('span', {'class' : 'numbers popularity'}).find('strong').text.replace("#","").strip()
 
+sql = """INSERT INTO animes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)"""
+
+data = (id, title, originalTitle, Type, genres, synopsis, aired, episodes, status, image, score, rank, popularity)
+
+cursor.execute(sql, data)
+
 conn.commit()
 
 conn.close()

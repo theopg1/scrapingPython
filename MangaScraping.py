@@ -6,7 +6,8 @@ conn = sqlite3.connect('customer.db')
 
 cursor = conn.cursor()
 
-url_animes = "https://myanimelist.net/manga/41467"
+id = "12"
+url_animes = "https://myanimelist.net/manga/" + id
     
 from urllib import request
 
@@ -51,12 +52,12 @@ genres = genres[:-2]
 #tomes
 valueToFind = "Volumes:"
 if page.find('span', string=valueToFind) is not None :
-    status = page.find('span', string=valueToFind).parent.text.replace(valueToFind,"").strip()
+    tomes = page.find('span', string=valueToFind).parent.text.replace(valueToFind,"").strip()
 
 #chapitres
 valueToFind = "Chapters:"
 if page.find('span', string=valueToFind) is not None :
-    status = page.find('span', string=valueToFind).parent.text.replace(valueToFind,"").strip()
+    chapitres = page.find('span', string=valueToFind).parent.text.replace(valueToFind,"").strip()
 
 #synopsisManga
 if page.find('span', {'itemprop' : 'description'}) is not None :
@@ -70,6 +71,12 @@ rank = page.find('span', {'class' : 'numbers ranked'}).find('strong').text.repla
 
 #popularity
 popularity = page.find('span', {'class' : 'numbers popularity'}).find('strong').text.replace("#","").strip()
+
+sql = """INSERT INTO mangas VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)"""
+
+data = (id, title, originalTitle, Type, genres, synopsis, published, tomes, chapitres, status, image, score, rank, popularity)
+
+cursor.execute(sql, data)
 
 conn.commit()
 
