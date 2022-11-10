@@ -16,9 +16,9 @@ class Scraping:
         url_animes = "https://myanimelist.net/anime/" + id
 
         try:
-            request_text = request.urlopen(url_animes).read()  
+            request_text = request.urlopen(url_animes).read().decode('utf-8')
 
-            page = bs4.BeautifulSoup(request_text, "html.parser").decode('utf-8')
+            page = bs4.BeautifulSoup(request_text, "html.parser")
 
             #titleAnime
             if page.find('h1', {'class' : 'title-name'}) is not None :
