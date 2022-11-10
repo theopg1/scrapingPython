@@ -4,6 +4,8 @@ conn = sqlite3.connect('customer.db')
 
 cursor = conn.cursor()
 
+cursor.execute("DROP TABLE animes")
+
 cursor.execute("""CREATE TABLE animes (
         id integer PRIMARY KEY,
         title text,
@@ -22,6 +24,8 @@ cursor.execute("""CREATE TABLE animes (
         popularity integer
     )
 """)
+
+cursor.execute("DROP TABLE mangas")
 
 cursor.execute("""CREATE TABLE mangas (
         id integer PRIMARY KEY,

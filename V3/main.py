@@ -2,6 +2,7 @@ import argparse
 import sqlite3
 from scraping import Scraping
 import pandas
+import time
 
 Scrap = Scraping()
 
@@ -38,6 +39,8 @@ if __name__ == '__main__':
                 print(df.head())
 
                 idValue += 1
+
+                time.sleep(3)
         
         except KeyboardInterrupt:
             pass
@@ -59,6 +62,8 @@ if __name__ == '__main__':
                 print(df.head())
 
                 idValue += 1
+
+                time.sleep(3)
 
         except KeyboardInterrupt:
             pass

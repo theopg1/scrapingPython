@@ -104,9 +104,9 @@ class Scraping:
 
         try:
         
-            request_text = request.urlopen(url_animes).read()
+            request_text = request.urlopen(url_animes).read().decode('utf-8')
 
-            page = bs4.BeautifulSoup(request_text, "html.parser").decode('utf-8')
+            page = bs4.BeautifulSoup(request_text, "html.parser")
 
             #titleManga
             if page.find('span', {'class' : 'h1-title'}) is not None :

@@ -2,7 +2,6 @@ import urllib
 from urllib import request
 import sqlite3
 import bs4
-import time
 
 class Scraping:
     "Scraping d'animes et de mangas"
@@ -73,15 +72,21 @@ class Scraping:
             #popularity
             popularity = page.find('span', {'class' : 'numbers popularity'}).find('strong').text.replace("#","").strip()
 
-            sql = """INSERT INTO animes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)"""
+            #Sortie
+            valueToFind = "Premiered:"
+            if page.find('span', string=valueToFind) is not None :
+                sortie = page.find('span', string=valueToFind).parent.text.replace(valueToFind,"").strip()
+                sortieSplit = sortie.split(" ")
+                saison = sortieSplit[0]
+                année = sortieSplit[1]
 
-            data = (id, title, originalTitle, Type, genres, synopsis, aired, episodes, status, image, score, rank, popularity)
+            sql = """INSERT INTO animes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"""
+
+            data = (id, title, originalTitle, Type, genres, synopsis, aired, saison, année, episodes, status, image, score, rank, popularity)
 
             cursor.execute(sql, data)
 
             conn.commit()
-
-            time.sleep(1)
 
         except:
             print("ID inexistant")
@@ -99,9 +104,9 @@ class Scraping:
 
         try:
         
-            request_text = request.urlopen(url_animes).read()
+            request_text = request.urlopen(url_animes).read().decode('utf-8')
 
-            page = bs4.BeautifulSoup(request_text, "html.parser").decode('utf-8')
+            page = bs4.BeautifulSoup(request_text, "html.parser")
 
             #titleManga
             if page.find('span', {'class' : 'h1-title'}) is not None :
@@ -160,23 +165,13 @@ class Scraping:
             #popularity
             popularity = page.find('span', {'class' : 'numbers popularity'}).find('strong').text.replace("#","").strip()
 
-            #Sortie
-            valueToFind = "Premiered:"
-            if page.find('span', string=valueToFind) is not None :
-                sortie = page.find('span', string=valueToFind).parent.text.replace(valueToFind,"").strip()
-                sortieSplit = sortie.split(" ")
-                saison = sortieSplit[0]
-                année = sortieSplit[1]
+            sql = """INSERT INTO mangas VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)"""
 
-            sql = """INSERT INTO animes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"""
-
-            data = (id, title, originalTitle, Type, genres, synopsis, aired, saison, année, episodes, status, image, score, rank, popularity)
+            data = (id, title, originalTitle, Type, genres, synopsis, published, tomes, chapitres, status, image, score, rank, popularity)
 
             cursor.execute(sql, data)
 
             conn.commit()
-
-            time.sleep(1)
 
         except:
             print("ID inexistant")
