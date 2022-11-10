@@ -10,7 +10,7 @@ cursor = conn.cursor()
 id = "12"
 url_animes = "https://myanimelist.net/manga/" + id
     
-request_text = request.urlopen(url_animes).read()
+request_text = request.urlopen(url_animes).read().decode('utf-8')
 
 page = bs4.BeautifulSoup(request_text, "html.parser")
 

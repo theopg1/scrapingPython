@@ -18,7 +18,7 @@ class Scraping:
         try:
             request_text = request.urlopen(url_animes).read()  
 
-            page = bs4.BeautifulSoup(request_text, "html.parser")
+            page = bs4.BeautifulSoup(request_text, "html.parser").decode('utf-8')
 
             #titleAnime
             if page.find('h1', {'class' : 'title-name'}) is not None :
@@ -98,7 +98,7 @@ class Scraping:
         
             request_text = request.urlopen(url_animes).read()
 
-            page = bs4.BeautifulSoup(request_text, "html.parser")
+            page = bs4.BeautifulSoup(request_text, "html.parser").decode('utf-8')
 
             #titleManga
             if page.find('span', {'class' : 'h1-title'}) is not None :
@@ -167,5 +167,5 @@ class Scraping:
 
         except:
             print("ID inexistant")
-            
+
         conn.close()
