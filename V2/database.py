@@ -5,7 +5,7 @@ conn = sqlite3.connect('customer.db')
 cursor = conn.cursor()
 
 cursor.execute("""CREATE TABLE animes (
-        id integer,
+        id integer PRIMARY KEY,
         title text,
         original_title text,
         type text,
@@ -22,7 +22,7 @@ cursor.execute("""CREATE TABLE animes (
 """)
 
 cursor.execute("""CREATE TABLE mangas (
-        id integer,
+        id integer PRIMARY KEY,
         title text,
         original_title text,
         type text,
