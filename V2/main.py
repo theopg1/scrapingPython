@@ -5,7 +5,7 @@ import pandas
 
 Scrap = Scraping()
 
-parser = argparse.ArgumentParser(description='Obtenir les informations d\'un anime')
+parser = argparse.ArgumentParser(description='Obtenir les informations d\'un anime ou d\'un manga')
 parser.add_argument('-i', '--id', type=int, required=True, help='id de l\'anime ou du manga')
 
 group = parser.add_mutually_exclusive_group()
