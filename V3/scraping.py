@@ -2,6 +2,7 @@ import urllib
 from urllib import request
 import sqlite3
 import bs4
+import time
 
 class Scraping:
     "Scraping d'animes et de mangas"
@@ -79,6 +80,8 @@ class Scraping:
             cursor.execute(sql, data)
 
             conn.commit()
+
+            time.sleep(1)
 
         except:
             print("ID inexistant")
@@ -164,6 +167,8 @@ class Scraping:
             cursor.execute(sql, data)
 
             conn.commit()
+
+            time.sleep(1)
 
         except:
             print("ID inexistant")
