@@ -66,9 +66,17 @@ rank = page.find('span', {'class' : 'numbers ranked'}).find('strong').text.repla
 #popularity
 popularity = page.find('span', {'class' : 'numbers popularity'}).find('strong').text.replace("#","").strip()
 
-sql = """INSERT INTO animes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)"""
+#Sortie
+valueToFind = "Premiered:"
+if page.find('span', string=valueToFind) is not None :
+    sortie = page.find('span', string=valueToFind).parent.text.replace(valueToFind,"").strip()
+    sortieSplit = sortie.split(" ")
+    saison = sortieSplit[0]
+    année = sortieSplit[1]
 
-data = (id, title, originalTitle, Type, genres, synopsis, aired, episodes, status, image, score, rank, popularity)
+sql = """INSERT INTO animes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"""
+
+data = (id, title, originalTitle, Type, genres, synopsis, aired, saison, année, episodes, status, image, score, rank, popularity)
 
 cursor.execute(sql, data)
 

@@ -12,6 +12,8 @@ cursor.execute("""CREATE TABLE animes (
         genres text,
         synopsis text,
         dates text,
+        saison text,
+        année text,
         episodes text,
         status text,
         image text,
