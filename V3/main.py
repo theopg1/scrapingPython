@@ -17,7 +17,7 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
 
-    conn = sqlite3.connect('customer.db')
+    conn = sqlite3.connect('animangas.db')
     cursor = conn.cursor()
 
     idValue = args.id

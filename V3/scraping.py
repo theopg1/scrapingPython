@@ -9,7 +9,7 @@ class Scraping:
     @staticmethod
     def animeScraping(id):
 
-        conn = sqlite3.connect('customer.db')
+        conn = sqlite3.connect('animangas.db')
 
         cursor = conn.cursor()
 
@@ -96,7 +96,7 @@ class Scraping:
     @staticmethod
     def mangaScraping(id):
 
-        conn = sqlite3.connect('customer.db')
+        conn = sqlite3.connect('animangas.db')
 
         cursor = conn.cursor()
 

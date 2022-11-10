@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('customer.db')
+conn = sqlite3.connect('animangas.db')
 
 cursor = conn.cursor()
 

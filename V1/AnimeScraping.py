@@ -3,7 +3,7 @@ from urllib import request
 import sqlite3
 import bs4
 
-conn = sqlite3.connect('customer.db')
+conn = sqlite3.connect('animangas.db')
 
 cursor = conn.cursor()
 
