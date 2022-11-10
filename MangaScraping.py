@@ -1,4 +1,5 @@
 import urllib
+from urllib import request
 import sqlite3
 import bs4
 
@@ -9,8 +10,6 @@ cursor = conn.cursor()
 id = "12"
 url_animes = "https://myanimelist.net/manga/" + id
     
-from urllib import request
-
 request_text = request.urlopen(url_animes).read()
 
 page = bs4.BeautifulSoup(request_text, "html.parser")
