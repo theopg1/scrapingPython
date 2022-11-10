@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
     else:
 
-        print("choisissez -a ou -m  en argument pour spécifier ce type de contenue voulut")
+        print("choisissez -a ou -m  en argument pour spécifier le type de contenu voulus")
 
     conn.close()
 
