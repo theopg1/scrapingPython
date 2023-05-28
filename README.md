@@ -39,9 +39,9 @@ Initialisation: </br>
 `scrapingPython\v2> python .\main.py` suivi d'un des arguments suivants:  
     1. `-i` ou `--id` 'valeur' afin de spécifier l'id de l'oeuvre
     </br>puis 
-    1. `-a` ou `--anime` récupèrera les données associées aux top laners
+    1. `-a` ou `--anime` récupèrera les données associées aux animes
     </br>ou 
-    2. `-m` ou `--manga` récupèrera les données associées aux junglers   
+    2. `-m` ou `--manga` récupèrera les données associées aux mangas   
 3. Pour lancer les analyses de données </br>
 `Exécuter les nodes Jupyter permettront d'afficher les graphiques.`
 
@@ -60,9 +60,9 @@ Initialisation: </br>
 `scrapingPython\v2> python .\main.py` suivi d'un des arguments suivants:  
     1. `-i` ou `--id` 'valeur' afin de spécifier l'id de l'oeuvre
     </br>puis 
-    1. `-a` ou `--anime` récupèrera les données associées aux top laners
+    1. `-a` ou `--anime` récupèrera les données associées aux animes
     </br>ou 
-    2. `-m` ou `--manga` récupèrera les données associées aux junglers   
+    2. `-m` ou `--manga` récupèrera les données associées aux mangas   
 3. Pour lancer les analyses de données </br>
 `Exécuter les nodes Jupyter permettront d'afficher les graphiques.`
 
